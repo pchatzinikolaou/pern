@@ -13,7 +13,7 @@ const ListPeople = () => {
 
   const deletePeople = async id => {
     try {
-      const deletePeople = await fetch(`http://localhost:5000/people/${id}`, {
+      const deletePeople = await fetch(`/people/${id}`, {
         method: "DELETE"
       });
 
@@ -25,7 +25,7 @@ const ListPeople = () => {
 
   const getPeople = async () => {
     try {
-      const response = await fetch("http://localhost:5000/people");
+      const response = await fetch("/people");
       const jsonData = await response.json();
       setPeople(jsonData);
     } catch (err) {

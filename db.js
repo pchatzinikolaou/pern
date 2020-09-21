@@ -1,11 +1,14 @@
 const Pool = require("pg").Pool;
+require("dotenv").config();
+
+const devConfig = `postgresql://${process.env.PG_USER}:${process.env.PG_PASSWORD}
+                    @${process.env.PG_HOST}:${process.env.PORT}/${process.env.PG_DATABASE}`
+
+const proConfig = process.env.DATABSE_URL;
 
 const pool = new Pool({
-    user: "postgres",
-    password: "0000",
-    host: "localhost",
-    port: "5432",
-    database: "peopledb",
+    connectionString:
+        process.env.NODE_ENV === "production" ? proConfig : devConfig
 });
 
 module.exports = pool;

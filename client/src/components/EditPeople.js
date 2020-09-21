@@ -15,7 +15,7 @@ const EditPeople = ({ person }) => {
     try {
       const body = { fName, lName, age };
       const response = await fetch(
-        `http://localhost:5000/people/${person.id}`,
+        `/people/${person.id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },

@@ -12,7 +12,7 @@ const AddPeople = () => {
         e.preventDefault();
         try {
             const body = { fName, lName, age };
-            const response = await fetch("http://localhost:5000/people", {
+            const response = await fetch("/people", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(body)
